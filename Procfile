@@ -1,0 +1,1 @@
+web: gunicorn SocialWebsite.wsgi --log-file -

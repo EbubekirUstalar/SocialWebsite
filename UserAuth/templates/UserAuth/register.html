@@ -1,0 +1,66 @@
+{% extends "UserAuth/base.html" %}
+
+{% block content %}
+
+    {% if alert_message %}
+        {% if alertColor == 'success' %}
+            <div class="alert alert-{{alertColor}}" role="alert">
+                Successfully created an account <a href="{% url 'UserAuth:login' %}" class="alert-link">Login</a>
+            </div>
+        {% else %}
+            <div class="alert alert-{{alertColor}}" role="alert">
+                <b>{{alert_message}}</b>
+            </div>
+        {% endif %}
+    {% endif %}
+
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-10">
+                <h3 class="mx-auto my-5">Register Page</h3>
+                <form action="{% url 'UserAuth:userregister' %}" method="POST">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="inputUserName">User Name</label>
+                        <input type="text" class="form-control" name="inputUserName" id="userName" placeholder="Enter Your User Name" value="">
+                        </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                        <label for="inputName">First Name</label>
+                        <input type="text" class="form-control" name="inputName" id="inputName" placeholder="Enter Your Name" value="">
+                        </div>
+                        <div class="form-group col-md-6">
+                        <label for="inputSurname">Surname</label>
+                        <input type="text" class="form-control" name="inputSurname" id="inputSurname" placeholder="Enter Your Surname" value="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputEmail">E-Mail</label>
+                        <input type="text" class="form-control" name="inputEmail" id="inputEmail" placeholder="Birisi.deneme@gmail.com" value="">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword1">Password</label>
+                        <input type="password" class="form-control" name="inputPassword1" id="inputPassword1" placeholder="Password" value="">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword2">Password Again</label>
+                        <input type="password" class="form-control" name="inputPassword2" id="inputPassword2" placeholder="Password Again" value="">
+                        </div>
+                        <div class="form-group">
+                        <div class="form-check">
+                            <input class="form-check-input is-invalid" type="checkbox" value="" name="terms" id="invalidCheck3" aria-describedby="invalidCheck3Feedback" required>
+                            <label for="invalidCheck3">
+                            Agree to terms and conditions
+                            </label>
+                        </div>
+                        </div>
+                    <button type="submit" class="btn btn-primary">Sign in</button>
+                    </form>
+            </div>
+        </div>
+
+    </div>
+{% endblock content %}
+
+
+
