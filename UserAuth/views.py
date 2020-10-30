@@ -23,7 +23,6 @@ def register(request):
 def userregister(request):
     if request.method == 'POST':
         try:
-            print(request.POST['terms'])
             if request.POST['inputPassword1'] == request.POST['inputPassword2']:
                 username = request.POST['inputUserName']
                 name = request.POST['inputName']
