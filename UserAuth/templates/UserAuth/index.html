@@ -37,7 +37,7 @@
 
                             </div>
                             <div class="card-footer">
-                                <small class="text-muted" style="font-weight: bold;">- {{o.owner}}</small>
+                                <a href="{% url 'UserAuth:profile' o.owner.username %}"><small class="text-muted">- {{o.owner}}</small></a>
                                 <small class="text-muted"> {{o.created_time}}</small>
                             </div>
                         </div>

@@ -83,9 +83,16 @@ def deletepost(request, post_id):
     except:
         return render(request, 'UserAuth/index.html', {'alert_message': 'Failed Try Again', 'alertColor': 'danger', 'postList': Post.objects.order_by('-created_time')[:20]})
 
+def profile(request, profileName):
+    try:
+        # post = get_object_or_404(User, User.username==profileName)
+        user = User.objects.get(username = profileName)
+        postList = Post.objects.filter(owner = user)
+        return render(request, 'UserAuth/profile.html', {'profileName': profileName, 'postList': postList})
+    except:
+        return render(request, 'UserAuth/profile.html', {'profileName': 'Couldnt find the profile'})
 
 
 
-def profile(request):
-    return render(request, 'UserAuth/profile.html', {})
+    # return render(request, 'UserAuth/profile.html', {'profileName': profileName})
 

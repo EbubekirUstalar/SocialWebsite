@@ -13,5 +13,5 @@ urlpatterns = [
     path('userlogout/', views.userlogout, name='userlogout'),
     path('createpost/', views.createpost, name='createpost'),
     path('deletepost/<int:post_id>', views.deletepost, name='deletepost'),
-    path('p/<int:profile_id>', views.profile, name='profile'),
+    path('p/<str:profileName>', views.profile, name='profile'),
 ]

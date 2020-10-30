@@ -5,6 +5,27 @@
         <div class="row justify-content-center">
             <div class="col-10">
                 <h3 class="mx-auto my-5">Profile Page</h3>
+                <h3 class="mx-auto my-5">{{profileName}}</h3>
+
+                {% for o in postList %}
+                    <h3 class="mx-auto my-5">Recent Posts</h3>
+                    <div class="w-100"></div>
+                    <div class="card mt-3">
+                        <div class="card-body">
+                            {% if user == o.owner %}
+                                <a href="{% url 'UserAuth:deletepost' o.id %}" class="btn ml-2 mb-1 close" aria-label="Close"><span aria-hidden="true">&times;</span></a>
+                            {% endif %}    
+                            <blockquote class="blockquote mb-0">
+                            <p>{{o.text}}</p>
+                            </blockquote>
+
+                        </div>
+                        <div class="card-footer">
+                            <a href="{% url 'UserAuth:profile' o.owner.username %}"><small class="text-muted">- {{o.owner}}</small></a>
+                            <small class="text-muted"> {{o.created_time}}</small>
+                        </div>
+                    </div>
+                {% endfor %}
             </div>
         </div>
     </div>
