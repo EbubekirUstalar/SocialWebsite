@@ -19,17 +19,17 @@ class Post(models.Model):
         return self.text
 
 
-class Profile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    bio = models.TextField(max_length=500, blank=True)
-    # followers = models.ForeignKey('self',on_delete=models.CASCADE, null=True, related_name='employee')
-    # followers = models.ForeignKey('self',on_delete=models.CASCADE, null=True, related_name='employee')
-    # friends = models.ManyToManyField(User)
-    # user = models.OneToOneField(User)  
-    #other fields here
+# class Profile(models.Model):
+#     user = models.OneToOneField(User, on_delete=models.CASCADE)
+#     bio = models.TextField(max_length=500, blank=True)
+#     # followers = models.ForeignKey('self',on_delete=models.CASCADE, null=True, related_name='employee')
+#     # followers = models.ForeignKey('self',on_delete=models.CASCADE, null=True, related_name='employee')
+#     # friends = models.ManyToManyField(User)
+#     # user = models.OneToOneField(User)  
+#     #other fields here
 
-    def __str__(self):
-        return self.user.username
+#     def __str__(self):
+#         return self.user.username
 
 
 
